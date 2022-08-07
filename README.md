@@ -29,3 +29,15 @@
         print(lengthOfLongestSubstring(s))
         
 2)
+
+                class Solution:
+                    def lengthOfLongestSubstring(self, s: str) -> int:
+                        if not s:
+                            return 0
+                        ans = 1
+                        for i in range(len(s)):
+                            for j in range(i+1,len(s)):
+                                substr = s[i:j+1]
+                                if len(substr) == len(set(substr)):
+                                    ans = max(ans,len(substr))
+        return ans
